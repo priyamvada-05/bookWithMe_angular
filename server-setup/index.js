@@ -15,7 +15,7 @@ const app=express();
 
 app.use('/api/v1/application', rental_routes);
 
-app.listen(4200, function(){
+app.listen(3001, function(){
 		console.log('Server is avaiable and listening to port');
 
 });
