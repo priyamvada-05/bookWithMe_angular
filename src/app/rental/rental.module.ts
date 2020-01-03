@@ -6,6 +6,8 @@ import { RentalListItemComponent } from './rental-list-item/rental-list-item.com
 import { RentalService} from './shared/rental.services';
 import { Routes, RouterModule} from '@angular/router';
 import { RentalDetailComponent } from './rental-detail/rental-detail.component';
+import { HttpClientModule} from '@angular/common/http';
+import { CustomPipe} from '../common/pipes-custom/common_pipes';
 
 const routes: Routes=[
 {path:'rental', 
@@ -23,12 +25,13 @@ children: [
     RentalComponent,
     RentalListComponent,
     RentalListItemComponent,
-    RentalDetailComponent
-
+    RentalDetailComponent,
+    CustomPipe
   ],
   imports: [
     CommonModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    HttpClientModule
   ],
 
   providers: [RentalService]

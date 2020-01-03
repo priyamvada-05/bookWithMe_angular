@@ -5,7 +5,7 @@ class Rental_Data_to_db{
 
 		this.data=[{
                   title: "Nice view on ocean",
-                  city: "San Francisco",
+                  city: "san Francisco",
                   street: "Main street",
                   category: "condo",
                   image: "https://booksync-jerga-prod.s3.amazonaws.com/uploads/rental/image/5/image.jpeg",
@@ -15,7 +15,7 @@ class Rental_Data_to_db{
                   dailyRate: 43
                   },
                   {
-                  title: "Modern apartment in center",
+                  title: "Modern appartment in center",
                   city: "New York",
                   street: "Time Square",
                   category: "apartment",
@@ -27,7 +27,7 @@ class Rental_Data_to_db{
                   },
                   {
                   title: "Old house in nature",
-                  city: "Spisska Nova Ves",
+                  city: "spisska nova ves",
                   street: "Banicka 1",
                   category: "house",
                   image: "https://booksync-jerga-prod.s3.amazonaws.com/uploads/rental/image/5/image.jpeg",

@@ -6,11 +6,11 @@ import { RentalModel} from '../shared/rental.model';
 @Component({
   selector: 'rental-detail',
   templateUrl: './rental-detail.component.html',
-  styleUrls: ['./rental-detail.component.css']
+  styleUrls: ['./rental-detail.component.scss']
 })
 export class RentalDetailComponent implements OnInit {
 
-	 current_id:number;
+	 current_id:string;
 	 rental_Detail:RentalModel;
 
   constructor( private route: ActivatedRoute, private rentalservice: RentalService) { }
@@ -19,7 +19,7 @@ export class RentalDetailComponent implements OnInit {
 
   this.route.params.subscribe(
   		(data)=>{
-  		this.current_id=Number(data.rental_ID);
+  		this.current_id=data.rental_ID;
   	},
   	(err)=>console.log(err)
   	);
@@ -33,8 +33,6 @@ export class RentalDetailComponent implements OnInit {
   		(err)=>{console.log(err)}
   		);
 
-  console.log(this.current_id);
-  console.log(this.rental_Detail)
   }
 
 

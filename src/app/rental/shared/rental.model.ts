@@ -1,6 +1,6 @@
 export class RentalModel{
 
-  id: number;
+  _id: string;
   title: string;
   city: string;
   street: string;
