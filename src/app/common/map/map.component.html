@@ -1,0 +1,10 @@
+<div *ngIf='latitude'>
+<agm-map  [latitude]='latitude' [longitude]='longitude' [zoom]='13'>
+	<agm-circle [latitude]='latitude' [longitude]='longitude' [radius]='800' 
+		[fillColor]="'#F44336'">
+		
+	</agm-circle>
+</agm-map>
+
+<p>{{location | upper}}</p>
+</div>
