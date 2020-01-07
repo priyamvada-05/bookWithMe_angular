@@ -1,4 +1,5 @@
 const model=require('./models/models');
+const userModel=require('./models/user-model');
 class Rental_Data_to_db{
 
 	constructor(){
@@ -36,22 +37,36 @@ class Rental_Data_to_db{
                   description: "Very nice apartment in center of the city.",
                   dailyRate: 23
 				 }]
+
+             this.user=[{
+                      "username":"Testnew5",
+                      "email":"Testnew5@gmail.com",
+                      "password":"Testt"
+                  }]    
 	}
 
 	data_to_mongoose_model(){
+            const userM=new userModel(this.user[0]);
+            let count=0;
 		this.data.forEach((rental_data)=>{
 			const rental_model=new model(rental_data);
+                  rental_model.user = userM ;
+                  userM.rental[count]=rental_data ;
+
 			rental_model.save();
+                  count=count+1;
 		})
+            userM.save();
 
 	}
 
-	add_rental_data_to_db(){
-		this.clean_Data_from_db();
+	async add_rental_data_to_db(){
+		await this.clean_Data_from_db();
 		this.data_to_mongoose_model();
 	}
 
 	async clean_Data_from_db(){
+            await userModel.deleteMany({});
 		await model.deleteMany({});
 	}
 }

@@ -10,8 +10,8 @@ const rentalSchema = new mongoose.Schema({
 	description: {type: String, require: true, max:[128, 'Limit is 128 character'], min:[1, 'Min limit is 1 character']},
 	dailyRate:Number,
 	shared:Boolean,
-	createdAt:{type:Date, default: Date.now}
-
+	createdAt:{type:Date, default: Date.now},
+	user:[{type: mongoose.Schema.Types.ObjectID, ref: 'usermodels'}]
 })
 
 module.exports=mongoose.model('Rental', rentalSchema);

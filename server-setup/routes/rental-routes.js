@@ -1,6 +1,14 @@
 const express=require('express');
 const routes=express.Router();
 const model=require('../models/models');
+const UserCtrl=require('../controller/user_controller');
+
+routes.get('/secret', UserCtrl.authMiddlewareAuth ,function(req, res){
+	console.log(req.body);
+	res.json({
+		'access':'you can access this page'
+	});
+})
 
 routes.get('', function(req, res){
 
@@ -33,5 +41,6 @@ routes.get('/:rentalID', (req,res)=>{
 	});
 
 })
+
 
 module.exports=routes;
