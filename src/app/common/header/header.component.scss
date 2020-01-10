@@ -29,8 +29,20 @@
     background-color: rgba(170,50,170,0.1);
   }
 
+  .nav-item1{
+    font-size: 20px;
+
+    .default{
+      cursor: pointer;
+    }
+  }
+
   .nav-item {
     font-size: 20px;
+
+    .default{
+      cursor: pointer;
+    }
 
     &:hover {
 

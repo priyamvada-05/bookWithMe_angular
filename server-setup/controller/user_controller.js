@@ -5,7 +5,9 @@ const config=require('../config/dev-config');
 
 exports.reg=function(req, res){
 	const {username, email, password, passwordConfirmation}=req.body;
+	console.log(req.body);
 	if(!password || !email){
+		console.log('I am in first if statemant');
 		return res.status(422).send({
 			error:{
 				'title': 'Invalid entry',
@@ -99,8 +101,12 @@ exports.auth=function(req, res){
 					  userID: data.id,
 					  username:data.username
 					}, config.secret, { expiresIn: '1h' });
-
-			return res.status(200).send(token)
+			console.log('This is token send by server');
+			console.log(token);
+			console.log(typeof(token));
+			return res.status(200).send({
+				token:token
+			});
 		}
 });
 
