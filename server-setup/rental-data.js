@@ -1,5 +1,6 @@
 const model=require('./models/models');
 const userModel=require('./models/user-model');
+const booking=require('./models/booking');
 class Rental_Data_to_db{
 
 	constructor(){
@@ -42,21 +43,29 @@ class Rental_Data_to_db{
                       "username":"Testnew5",
                       "email":"Testnew5@gmail.com",
                       "password":"Testt"
-                  }]    
+                  },
+                       {
+                      "username":"Testnew05",
+                      "email":"Testnew05@gmail.com",
+                      "password":"Testt5"
+                  }
+                  ]    
 	}
 
 	data_to_mongoose_model(){
             const userM=new userModel(this.user[0]);
+            const userM1=new userModel(this.user[1]);
             let count=0;
 		this.data.forEach((rental_data)=>{
-			const rental_model=new model(rental_data);
+			            const rental_model=new model(rental_data);
                   rental_model.user = userM ;
                   userM.rental[count]=rental_data ;
 
-			rental_model.save();
+			            rental_model.save();
                   count=count+1;
 		})
             userM.save();
+            userM1.save();
 
 	}
 
@@ -68,6 +77,8 @@ class Rental_Data_to_db{
 	async clean_Data_from_db(){
             await userModel.deleteMany({});
 		await model.deleteMany({});
+    await booking.deleteMany({});
+
 	}
 }
 

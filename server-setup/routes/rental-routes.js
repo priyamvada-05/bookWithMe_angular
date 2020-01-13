@@ -12,35 +12,43 @@ routes.get('/secret', UserCtrl.authMiddlewareAuth ,function(req, res){
 
 routes.get('', function(req, res){
 
-	model.find({}, (err, data)=>{
-		if(err){
-			res.status(422).send({
+	model.find({}).select('-boooking').exec().then((rental)=>{
+
+		return res.json(rental);
+
+	}).catch((err)=>{
+		console.log(err);
+		return	res.status(422).send({
 				title: 'Error occured',
 				status: 422,
 				error:'Could not find the data'
 			} );
-		}
-		console.log(err);
-		res.json(data);
 	});
+
 	
 });
 
 routes.get('/:rentalID', (req,res)=>{
-	model.findById(req.params.rentalID, (err, data)=>{
-		if(err){
-			res.status(422).send({
+
+	model.findById(req.params.rentalID)
+		 .populate('user', 'username -_id')
+		 .populate('booking', 'startAt endAt -_id').then((data)=>{
+
+		 	console.log(data);
+		 	return res.json(data);
+
+		 }).catch((err)=>{
+		 	console.log(err);
+			return res.status(422).send({
 				title: 'Error occured',
 				status: 422,
 				error:'Could not find the data'
 
 			});
-		}
-		console.log(err);
-		res.json(data)
-	});
+		 })
 
-})
+
+});
 
 
 module.exports=routes;

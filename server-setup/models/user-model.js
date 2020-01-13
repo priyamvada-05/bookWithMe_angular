@@ -36,7 +36,9 @@ var UserModelSchema= new mongoose.Schema({
 		lowercase:true
 	},
 
-	rental: [{type: mongoose.Schema.Types.ObjectID, ref: 'rentals'}]
+	rental: [{type: mongoose.Schema.Types.ObjectID, ref: 'Rental'}],
+
+	booking:[{ type: mongoose.Schema.Types.ObjectID, ref: 'bookingModel'}]
 	
 
 })
