@@ -134,7 +134,12 @@ exports.authMiddlewareAuth=function(req, res, next){
 	}
 
 	const pToken= jwt.verify(token.split(' ')[2], config.secret);
+	console.log(pToken);
+
+
 	userModel.findById(pToken.userID).then((data)=>{
+		console.log('This is findByID');
+		console.log(data)
 		res.locals.user=data;
 		next();
 	}).catch((err)=>{
