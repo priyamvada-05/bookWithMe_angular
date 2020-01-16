@@ -121,6 +121,7 @@ exports.auth=function(req, res){
 exports.authMiddlewareAuth=function(req, res, next){
 
 	const token=req.headers.authorization;
+	console.log('This is token');
 	console.log(token);
 
 	if(!token){
@@ -133,7 +134,7 @@ exports.authMiddlewareAuth=function(req, res, next){
 		})
 	}
 
-	const pToken= jwt.verify(token.split(' ')[2], config.secret);
+	const pToken= jwt.verify(token.split(' ')[1], config.secret);
 	console.log(pToken);
 
 

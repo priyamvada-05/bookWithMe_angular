@@ -24,7 +24,7 @@ export class AuthService{
 	}
 
 	private saveToken(data:object):object{
-		this.decodedToken=this.jwt.decodeToken(data['token'])
+		this.decodedToken=this.jwt.decodeToken(data['token']);
 		localStorage.setItem('login_token', data['token']);
 		localStorage.setItem('login_decodedtoken', JSON.stringify(this.decodedToken));
 		return data;
@@ -58,6 +58,7 @@ export class AuthService{
 			}
 			)
 	}
+	
 	public getToken():string{
 		console.log('token');
 		console.log(localStorage.getItem('login_token'));

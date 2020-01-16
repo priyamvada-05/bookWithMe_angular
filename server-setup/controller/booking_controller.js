@@ -11,10 +11,13 @@ exports.bookingReq=function(req, res){
 	const rental1=req.body.rental;
 	const user=res.locals.user;
 
+	console.log('request body');
+	console.log(req.body);
+
 	console.log('user');
 	console.log(user);
 	
-	rentalModel.findById(rental1.rentalID).populate('booking').populate('user').exec().then((rental)=>{
+	rentalModel.findById(rental1._id).populate('booking').populate('user').exec().then((rental)=>{
 
 		console.log('This is the data');
 		console.log(rental);
@@ -41,6 +44,7 @@ exports.bookingReq=function(req, res){
 			userModel.findOneAndUpdate({_id: user._id},
 				{$push:{ booking: bookRental}
 			} ).then((data)=>{
+				console.log('Data is saved')
 				console.log(data);
 			}).catch((err)=>{
 				console.log(err);
@@ -49,7 +53,7 @@ exports.bookingReq=function(req, res){
 			bookRental.save().then((rental)=>{
 
 
-			return res.json({
+			return res.status(200).send({
 				startAt: bookRental.startAt,
 				endAt: bookRental.endAt
 			});

@@ -5,6 +5,6 @@ const bookingController=require('../controller/booking_controller');
 
 const router=express.Router();
 
-router.post('/booking', authMiddleware.authMiddlewareAuth, bookingController.bookingReq);
+router.post('', authMiddleware.authMiddlewareAuth, bookingController.bookingReq);
 
 module.exports=router;

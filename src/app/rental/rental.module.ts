@@ -11,6 +11,10 @@ import { MapModule} from '../common/map/map.module';
 import { AuthGuard} from '../auth/shared/auth.guard';
 import { RentalBookingDetailComponent } from './rental-detail/rental-booking-detail/rental-booking-detail.component';
 import { Daterangepicker } from 'ng2-daterangepicker';
+import { BookingService} from './shared/booking.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HTTP_INTERCEPTORS} from '@angular/common/http';
+import { TokenInterceptor} from '../auth/shared/token.interceptor';
 
 const routes: Routes=[
 {path:'rental', 
@@ -36,14 +40,23 @@ children: [
     RouterModule.forChild(routes),
     HttpClientModule,
     MapModule,
-    Daterangepicker
+    Daterangepicker,
+    FormsModule,
+    ReactiveFormsModule,
+
   ],
   exports:[
   ],
 
   providers: [
   RentalService,
-  AuthGuard]
+  AuthGuard,
+  {
+    provide:HTTP_INTERCEPTORS,
+    useClass:TokenInterceptor,
+    multi:true
+  },
+  BookingService]
 })
 export class RentalModule {
 //console.log('Hi this is rental Module');
