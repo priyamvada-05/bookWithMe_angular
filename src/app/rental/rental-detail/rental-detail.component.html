@@ -46,7 +46,11 @@
 	        </div>
 	      </div>
 	      <div class="col-md-4 booking"> 
-	      	<rental-booking-detail [rental]='rental_Detail'></rental-booking-detail>
+	      	<rental-booking-detail 
+	      		[rental]='rental_Detail'
+	      		[booking]='rental_Detail.booking'>
+	      			
+	      	</rental-booking-detail>
 	      </div>
 	    </div>
 	  </div>

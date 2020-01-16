@@ -1,17 +1,60 @@
-<div class="booking">
-  <h3 class="booking-price">${{rental.dailyRate}} <span class="booking-per-night">per night</span></h3>
-  <hr>
-  <label>Dates</label>
-    <input type="text" class="form-control daterangepicker-input" name="daterangeInput" daterangepicker [options]="options" (selected)="selectedDate($event, daterange)"
-     />
-  <div class="form-group">
-    <label for="guests">Guests</label>
-    <input type="number" class="form-control" id="guests" aria-describedby="emailHelp" placeholder="">
-  </div>
-  <button class="btn btn-danger btn-confirm btn-block">Reserve place now</button>
-  <hr>
-  <p class="booking-note-title">People are interested into this house</p>
-  <p class="booking-note-text">
-    More than 500 people checked this rental in last month.
-  </p>
+<form [formGroup]='form'>
+  <div class="booking">
+    <h3 class="booking-price">${{rental.dailyRate}} <span class="booking-per-night">per night</span></h3>
+    <hr>
+    <label>Dates</label>
+      <input 
+      type="text" 
+      class="form-control daterangepicker-input" 
+      name="daterangeInput" 
+      daterangepicker [options]="options" 
+      (selected)="selectedDate($event, daterange)"
+       />
+    <div class="form-group">
+      <label for="guests">Guests</label>
+      <input 
+        [(ngModel)]='guest'
+        type="number" 
+        class="form-control" 
+        id="guests" 
+        aria-describedby="emailHelp" 
+        formControlName='guest'>
+    </div>
+    <button  
+        [disabled]='!form.valid || !daterange.start || !daterange.end'
+        class="btn btn-danger btn-confirm btn-block" 
+        (click)="open(content)">
+            Reserve place now
+    </button>
+
+    <hr>
+    <p class="booking-note-title">People are interested into this house</p>
+    <p class="booking-note-text">
+      More than 500 people checked this rental in last month.
+    </p>
 </div>
+</form>
+
+<ng-template #content>
+<div class="modal-header">
+    <h4 class="modal-title title" id="modal-title">
+      <span class="text-primary">Confirm Booking</span><br>
+      <span class="text-primary">{{daterange.start}} to {{daterange.end}}</span>
+    </h4>
+  </div>
+ <hr> 
+<div class="modal-body">
+    <p> <em> {{daterange.days}}</em> night / <em> {{rental.dailyRate}}</em> per night</p>
+    <p> Guest : <em> {{guest}}</em></p>
+    <p> Price : <em> {{daterange.totalPrice}}</em></p>
+</div>
+<div *ngIf='errors.error' class='alert-danger modal-body'>
+  {{errors.error}}
+</div>
+<hr>
+<div class="modal-footer">
+    <button type="button" class="btn btn-outline-secondary buttons" (click)="close()">Cancel</button>
+    <button type="button" class="btn btn-outline-dark" (click)="Save()">Confirm</button>
+</div>
+
+</ng-template>
