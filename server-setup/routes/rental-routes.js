@@ -12,6 +12,32 @@ routes.get('/secret', UserCtrl.authMiddlewareAuth ,function(req, res){
 
 routes.get('', function(req, res){
 
+	
+	const city=req.query.city;
+	console.log(city)
+	//const city1=`/^${city.toLowerCase()}/`;
+	if(city){
+		console.log('This is inside the re.query.city');
+		model.find({city: city}).select('-booking').exec().then((rental)=>{
+			if(rental.length>0){
+				return res.status(200).send(rental);
+			}
+			else
+			{
+				return res.status(422).send({
+							title: 'Error occured',
+							status: 422,
+							error:`Could not find the rental with cith ${city}`
+						});
+		}
+		
+		}).catch((err)=>{
+			console.log(err)
+		})
+	}
+
+	else{
+
 	model.find({}).select('-boooking').exec().then((rental)=>{
 
 		return res.json(rental);
@@ -24,6 +50,10 @@ routes.get('', function(req, res){
 				error:'Could not find the data'
 			} );
 	});
+
+	}
+
+
 
 	
 });

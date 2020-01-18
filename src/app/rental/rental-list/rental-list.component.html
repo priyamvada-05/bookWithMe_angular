@@ -1,8 +1,15 @@
-<h1 class="title heading">Your lovely home alaround the world !!</h1>
-<div class="container-fluid">
-	<div class="row card-row">
-		<div class="col-lg-3 col-md-3 col-sm-3 py-2" *ngFor="let item of rentals">
-			<rental-list-item [item]='item'></rental-list-item>
+<div class="box1">
+	<div class='new'>
+	<h1 class="title heading">Your lovely home all around Ireland !!</h1>
+	</div>
+</div>
+
+<div class="box2">
+	<div class="container-fluid">
+		<div class="row card-row">
+			<div class="col-lg-3 col-md-3 col-sm-3 py-2" *ngFor="let item of rentals">
+				<rental-list-item [item]='item'></rental-list-item>
+			</div>
 		</div>
 	</div>
 </div>

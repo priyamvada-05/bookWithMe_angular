@@ -17,7 +17,7 @@
     .rental_Detail {
       &-type {
         font-size: 14px;
-        font-weight: 400;
+        font-weight: bold;
         text-transform: uppercase;
         margin: 0;
       }
@@ -32,12 +32,14 @@
       &-city {
         font-size: 14px;
         font-weight: 300;
+        font-weight: bold;
         margin-bottom: 20px;
       }
 
       &-room-info {
         margin-bottom: 20px;
         font-weight: 300;
+        font-weight: bold;
         font-size: 16px;
 
         span {
@@ -59,12 +61,14 @@
         .title {
           margin-bottom: 10px;
           font-weight: 700;
+          font-weight: bold;
           font-size: 22px;
         }
         span {
           display: block;
           margin-bottom: 15px;
           font-weight: 300;
+          font-weight: bold;
         }
       }
     }
