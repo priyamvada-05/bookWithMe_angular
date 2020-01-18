@@ -13,8 +13,9 @@ mongoose.connect(config.connection_string , {useNewUrlParser: true}).then(()=>{
 	if(process.env.NODE_ENV !== 'production'){
 	const rental_db=new rental();
 	//rental_db.add_rental_data_to_db();
-})
+
 }
+});
 
 
 const app=express();
