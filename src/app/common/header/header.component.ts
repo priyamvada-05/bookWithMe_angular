@@ -10,7 +10,7 @@ import { FormGroup, FormBuilder, Validators} from '@angular/forms';
 })
 export class HeaderComponent implements OnInit {
 
-	//details:any={};
+	//details:string;
 	search:string;
 	search1:string;
  
@@ -18,7 +18,7 @@ export class HeaderComponent implements OnInit {
  	}
 
  	ngOnInit(){
-		
+		//this.getUserDetail()
  	}
 
  	/*getUserDetail(){
@@ -28,7 +28,6 @@ export class HeaderComponent implements OnInit {
  	getLogout(){
  		localStorage.removeItem('login_token');
  		localStorage.removeItem('login_decodedtoken');
-
  		this.router.navigate(['/auth/login']);
 
  	}
