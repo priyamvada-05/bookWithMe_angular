@@ -1,7 +1,7 @@
 const bcrypt=require('bcrypt');
 var userModel=require('../models/user-model');
 const jwt=require('jsonwebtoken');
-const config=require('../config/dev-config');
+const config=require('../config');
 
 exports.reg=function(req, res){
 	const {username, email, password, passwordConfirmation}=req.body;

@@ -10,16 +10,20 @@ import { FormGroup, FormBuilder, Validators} from '@angular/forms';
 })
 export class HeaderComponent implements OnInit {
 
-	username:string;
+	//details:any={};
 	search:string;
 	search1:string;
  
- 	constructor( private authService:AuthService, private router:Router){
+ 	constructor( public authService:AuthService, private router:Router){
  	}
 
  	ngOnInit(){
 		
  	}
+
+ 	/*getUserDetail(){
+ 		this.details= this.authService.getUserDetails();
+ 	}*/
  	
  	getLogout(){
  		localStorage.removeItem('login_token');

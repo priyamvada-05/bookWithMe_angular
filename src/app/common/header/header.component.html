@@ -31,7 +31,7 @@
 
     <ng-container *ngIf='authService.isAutherise()'>
       <li class="nav-item1">
-        <a class="nav-link default" (click)='getRentalUser()'> Welcome {{authService.getUserDetails().username}}  </a>
+        <a class="nav-link default" (click)='getRentalUser()'> Welcome {{authService.getUserDetails()}}  </a>
       </li>
       <li class="nav-item">
         <a class="nav-link default" (click)='getLogout()'>Logout <span class="sr-only">(current)</span></a>

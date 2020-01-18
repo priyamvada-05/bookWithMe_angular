@@ -41,9 +41,9 @@ export class AuthService{
 
 	}
 
-	private getUserDetails():object{
-		
-		return JSON.parse(localStorage.getItem('login_decodedtoken'))
+	public getUserDetails():string{
+		 const details= JSON.parse(localStorage.getItem('login_decodedtoken'));
+		return details.username;
 	}
 
 	public sendDataToMongoDB(userData):Observable<any>{
