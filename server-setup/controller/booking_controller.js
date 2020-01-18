@@ -130,3 +130,55 @@ function isBookingValid(proposedBooking, rental){
 
 return false;*/
 }
+
+exports.userBooking=function(req, res){
+
+	const user=res.locals.user;
+	console.log('this is user in userBooking');
+	console.log(user);
+	
+	bookingModel.find({user: { $in: [{ _id: user._id}]}})
+				.populate('rental').then(
+		(data)=>{
+			if(data.length>0){
+						console.log(data);
+						return res.json(data);
+					}
+			else{
+				return res.status(422).send({
+				error:{
+					title:'Invalid request',
+					status:422,
+					error:'No Booking booked'
+				}
+				})
+			}
+			}).catch((err)=>{
+			console.log(err);
+		})
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

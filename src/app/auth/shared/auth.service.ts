@@ -42,6 +42,7 @@ export class AuthService{
 	}
 
 	private getUserDetails():object{
+		
 		return JSON.parse(localStorage.getItem('login_decodedtoken'))
 	}
 

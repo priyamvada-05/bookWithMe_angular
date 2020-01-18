@@ -19,4 +19,9 @@ export class RentalService{
         return this.http.get('/api/v1/application');
         }
 
+     public getRentalBySearchCity(city: string): Observable<any>{
+     	const searchCity=city.replace(' ', '%20');
+     	return this.http.get('/api/v1/application/?city=' + searchCity);
+     }
+
 }

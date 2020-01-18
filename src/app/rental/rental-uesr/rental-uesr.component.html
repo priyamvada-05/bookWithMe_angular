@@ -1,0 +1,17 @@
+<section id="userBookings">
+  <h1 class="page-title">My Bookings</h1>
+  <div class="row">
+     <ng-container *ngIf='!error'> <!-- Check for bookings length -->
+      <div class="col-md-4"  *ngFor='let item of booking'> <!-- Iterate bookings here -->
+      	<rental-user-detail [itemBooking]='item'> </rental-user-detail>
+      </div>
+    </ng-container>
+    <ng-container *ngIf='error'>
+    <div  class="alert alert-warning new"> <!-- check if booking length == 0 -->
+      You have no bookings created. Go to rentals section and book your place today.
+      <br>
+    <button class="btn btn-bwm" (click)="goToRental()">Available Rentals</button>
+    </div>
+  </ng-container>
+  </div>
+</section>

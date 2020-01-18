@@ -1,0 +1,16 @@
+<div class="card text-center">
+  <div class="card-header">
+    {{itemBooking.rental.category}}  <!-- rental category -->
+  </div>
+  <div class="card-block">
+    <h4 class="card-title"> {{itemBooking.rental.title}} </h4> <!-- rental title and city -->
+    <p class="card-text booking-desc"> {{itemBooking.rental.description}} </p> <!-- rental description -->
+    <p class="card-text booking-days"> {{startAt}} - {{endAt}} | {{days}} days</p> 
+    <p class="card-text booking-price"><span>Price: </span> <span class="booking-price-value">
+      {{itemBooking.totalPrice}} $</span></p> <!-- booking price -->
+    <button class="btn btn-bwm" (click)='goToRental()' >Go to Rental</button> <!-- link to rental detail -->
+  </div>
+  <div class="card-footer text-muted">
+    Created at {{createdAt}} <!-- booking createdAt -->
+  </div>
+</div>

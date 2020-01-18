@@ -1,0 +1,32 @@
+  .card-block {
+    padding: 20px;
+  }
+
+  .card-header {
+    text-transform: capitalize;
+    background-color: #8cd975;
+  }
+
+  .card-title {
+    font-size: 18px;
+  }
+
+  .booking {
+    &-desc {
+      font-size: 14px;
+    }
+
+    &-days {
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    &-price-value {
+      font-weight: 700;
+    }
+  }
+
+  button{
+    background-color: #fc6156;
+    color: white;
+  }

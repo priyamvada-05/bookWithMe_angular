@@ -7,4 +7,6 @@ const router=express.Router();
 
 router.post('', authMiddleware.authMiddlewareAuth, bookingController.bookingReq);
 
+router.get('/userBooking', authMiddleware.authMiddlewareAuth, bookingController.userBooking)
+
 module.exports=router;

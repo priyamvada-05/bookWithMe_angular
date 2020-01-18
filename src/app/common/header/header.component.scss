@@ -2,7 +2,6 @@
 .navbar {
   padding: 20px;
   height: 90px;
-  margin-bottom: 40px;
   background-color: rgba(250,150,170,0.1);
 
   .bwm-search {
@@ -21,12 +20,12 @@
   }
 
   .something{
-
     padding: 10px;
-    border-style:  dotted ;
-    border-width: 1px;
-    border-radius: 35px 20px 35px 20px;
-    background-color: rgba(170,50,170,0.1);
+    border: dotted black 1px;
+    border-radius: 25px 0 25px 0;
+    background-color: #8dff87;
+    color: #F44336;
+
   }
 
   .nav-item1{
@@ -42,6 +41,10 @@
 
     .default{
       cursor: pointer;
+      background-color:  #fc6156;
+      color: white;
+      border-radius: 25px;
+      padding: 10px;
     }
 
     &:hover {
@@ -49,7 +52,7 @@
       border: dotted black 1px;
       border-radius: 10px;
       margin: 10px;
-      background-color: rgba(170,50,170,0.1);
+      background-color:  #fc6156;
       font-weight: 550;
     }
   }

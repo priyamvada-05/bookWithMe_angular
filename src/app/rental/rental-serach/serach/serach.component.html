@@ -1,0 +1,14 @@
+<div *ngIf='rentals.length>0'>
+<h1 *ngIf='rentals.length>0' class="title heading">Results for City - {{city | upper}}</h1>
+<div class="container-fluid">
+	<div class="row card-row">
+		<div class="col-lg-3 col-md-3 col-sm-3 py-2" *ngFor="let item of rentals">
+			<rental-list-item [item]='item'></rental-list-item>
+		</div>
+	</div>
+</div>
+</div>
+
+<div *ngIf='errors'>
+<h1 class="title heading">No Results for City - {{city | upper}}</h1>
+</div>

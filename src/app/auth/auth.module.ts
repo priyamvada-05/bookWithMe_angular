@@ -43,6 +43,10 @@ const route:Routes =[{
     useClass:TokenInterceptor,
     multi:true
   }
+  ],
+  exports:[
+  AuthComponent
   ]
+
 })
 export class AuthModule { }

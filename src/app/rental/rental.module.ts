@@ -15,6 +15,11 @@ import { BookingService} from './shared/booking.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS} from '@angular/common/http';
 import { TokenInterceptor} from '../auth/shared/token.interceptor';
+import { RentalSerachComponent } from './rental-serach/rental-serach.component';
+import {SerachComponent} from './rental-serach/serach/serach.component';
+import { RentalUesrComponent } from './rental-uesr/rental-uesr.component';
+import { RentalUserDetailComponent } from './rental-uesr/rental-user-detail/rental-user-detail.component';
+
 
 const routes: Routes=[
 {path:'rental', 
@@ -23,8 +28,14 @@ children: [
 { path: '', component: RentalListComponent, canActivate:[AuthGuard]},
 { path: ':rental_ID', component: RentalDetailComponent, canActivate:[AuthGuard]}
 ]
-}
-
+},
+{path:'rentalSearch',
+component: RentalSerachComponent,
+children:[
+{ path: ':rentalSearchCity', component: SerachComponent, canActivate:[AuthGuard]}
+]
+},
+{path: 'rentalUser', component: RentalUesrComponent}
 ]
 
 @NgModule({
@@ -33,7 +44,11 @@ children: [
     RentalListComponent,
     RentalListItemComponent,
     RentalDetailComponent,
-    RentalBookingDetailComponent
+    RentalBookingDetailComponent,
+    RentalSerachComponent,
+    SerachComponent,
+    RentalUesrComponent,
+    RentalUserDetailComponent
   ],
   imports: [
     CommonModule,

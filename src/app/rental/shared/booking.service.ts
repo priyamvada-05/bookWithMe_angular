@@ -25,12 +25,14 @@ export class BookingService{
 			    return dates;
       }
 		
-	
-
-
 	public createBookingInMongo(booking:BookingModel): Observable<any>{
 
 		return this.http.post('/api/v1/booking', booking);
+
+	}
+
+	public getUserBookingFromMongoDB():Observable<any>{
+		return this.http.get('/api/v1/booking/userBooking');
 
 	}
 }
